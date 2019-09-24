@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneDepart.unity
     guid: 3dac5ca051993574a8a48acddfd5c613
   - enabled: 1
-    path: Assets/Scenes/Scene Jeu.unity
+    path: Assets/Scenes/Niveau1.unity
     guid: 7514a2419956a5c479361580fa3ba466
+  - enabled: 1
+    path: Assets/Scenes/Niveau2.unity
+    guid: c94569a567c7dfd49a309dd201c04ace
   - enabled: 1
     path: Assets/Scenes/SceneGagnant.unity
     guid: 343dedee3da1fe643b6ab73e719c784b
