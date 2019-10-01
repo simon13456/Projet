@@ -17,6 +17,7 @@ public class Gestiondescene : MonoBehaviour
     public void reco()
     {
         int indexSceneCourante = SceneManager.GetActiveScene().buildIndex;
+        FindObjectOfType<etatJeu>().suicide();
         SceneManager.LoadScene(0);
     }
 }

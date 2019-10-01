@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Oncollison : MonoBehaviour
 {
-    public
-        Niveau niveau;
+    private Niveau _niveau;
+    [SerializeField] private int _valPoint=50;
+    [SerializeField] private int nbscoupMax = 1;
+    [SerializeField] private Sprite[] _imageBloc;
+    private int _currentHit = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        niveau = FindObjectOfType<Niveau>();
-        niveau.compterBriques();
+        if (tag != "incassable")
+        {
+            _niveau = FindObjectOfType<Niveau>();
+            _niveau.compterBriques();
+        }
     }
 
     // Update is called once per frame
@@ -19,9 +26,20 @@ public class Oncollison : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        niveau.enleverBrique();
-        Destroy(gameObject, 0f);
-
+        if (tag != "incassable")
+        {
+            _currentHit++;
+            if (_currentHit >= nbscoupMax)
+            {
+                _niveau.enleverBrique();
+                Destroy(gameObject, 0f);
+                FindObjectOfType<etatJeu>().ajouterPoints(_valPoint);
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = _imageBloc[_currentHit];
+            }
+        }
     }
     
 }

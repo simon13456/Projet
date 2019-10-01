@@ -41,4 +41,14 @@ public class Balls : MonoBehaviour
         Vector2 paddlePos = new Vector2(_paddle1.transform.position.x, _paddle1.transform.position.y);
         transform.position = paddlePos + _PaddleToBall;
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        
+        if (_estLance)
+        {
+            Vector2 ajustement = new Vector2(UnityEngine.Random.Range(0f, 0.2f), UnityEngine.Random.Range(0f, 0.2f));
+            GetComponent<Rigidbody2D>().velocity += ajustement;
+        }
+        
+    }
 }
