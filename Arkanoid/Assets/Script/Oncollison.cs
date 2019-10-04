@@ -7,7 +7,8 @@ public class Oncollison : MonoBehaviour
     private Niveau _niveau;
     [SerializeField] private int _valPoint=50;
     [SerializeField] private int nbscoupMax = 1;
-    [SerializeField] private Sprite[] _imageBloc;
+    [SerializeField] private Sprite[] _imageBloc=default;
+    [SerializeField] private AudioClip _audioclip=default;
     private int _currentHit = 0;
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class Oncollison : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
+        AudioSource.PlayClipAtPoint(_audioclip, Camera.main.transform.position, 0.5f);
         if (tag != "incassable")
         {
             _currentHit++;

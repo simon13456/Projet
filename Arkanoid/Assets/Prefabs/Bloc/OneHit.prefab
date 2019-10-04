@@ -121,4 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _valPoint: 50
-  nbscoup: 1
+  nbscoupMax: 1
+  _imageBloc:
+  - {fileID: 21300000, guid: 98fb1d052414a994abf54e311fe6b5df, type: 3}
+  _audioclip: {fileID: 8300000, guid: 4e473437ad1cf704bb1e60985e0d9908, type: 3}

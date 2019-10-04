@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class etatJeu : MonoBehaviour
 {
-    [Range(0.1f,10.0f)][SerializeField] private float _vitJeu = 1.0f;
+    [Range(0.1f,10.0f)][SerializeField] private float _vitJeu = 0.75f;
     private int _point = 0;
-    [SerializeField] private Text _txtPointage;
+    [SerializeField] private Text _txtPointage=default;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,5 +39,9 @@ public class etatJeu : MonoBehaviour
     public void suicide()
     {
         Destroy(gameObject);
+    }
+    public void plusvit()
+    {
+        _vitJeu =+ 0.75F;
     }
 }

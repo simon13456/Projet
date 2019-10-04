@@ -120,8 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0102b72e50340d44785fedc993178264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valPoint: 100
-  nbscoupMax: 2
+  _valPoint: 50
+  nbscoupMax: 1
   _imageBloc:
   - {fileID: 21300000, guid: 98fb1d052414a994abf54e311fe6b5df, type: 3}
   - {fileID: 21300000, guid: 41f2062426b6b0341b3b7d572cd94a00, type: 3}
+  _audioclip: {fileID: 8300000, guid: 4e473437ad1cf704bb1e60985e0d9908, type: 3}

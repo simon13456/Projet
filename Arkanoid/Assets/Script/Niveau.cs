@@ -19,6 +19,7 @@ public class Niveau : MonoBehaviour
     {
         if (Brique <= 0)
         {
+            FindObjectOfType<etatJeu>().plusvit();
             _gestiondescene.ChangerScene();
         }
     }
