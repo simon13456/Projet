@@ -9,7 +9,7 @@ public class etatJeu : MonoBehaviour
 {
     [Range(0.1f,10.0f)][SerializeField] private float _vitJeu = 0.75f;
     [SerializeField] private int _vie = 3;
-    [SerializeField] private Text _txtPointage=default;
+    [SerializeField] private TextMeshProUGUI _txtPointage =default;
     [SerializeField] private TextMeshProUGUI _nbsVie =default;
     [SerializeField] private TextMeshProUGUI _Niveau = default;
     [SerializeField] private TextMeshProUGUI _temps = default;
