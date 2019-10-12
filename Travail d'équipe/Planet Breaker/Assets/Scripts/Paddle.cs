@@ -15,8 +15,8 @@ public class Paddle : MonoBehaviour
 
     public float TrouverAngle()
     {
-        float xPos = ((Input.mousePosition.x / Screen.width * worldWidth) - 8);
-        float yPos = ((Input.mousePosition.y / Screen.height * worldHeight) - 6);
+        float xPos = ((Input.mousePosition.x / Screen.width * worldWidth) - 8f);
+        float yPos = ((Input.mousePosition.y / Screen.height * worldHeight) - 5.65f);
 
         float angleSupp = 0;
 
@@ -33,8 +33,8 @@ public class Paddle : MonoBehaviour
         float xPos = 0f;
         float yPos = 0f;
         float  anglePaddle = TrouverAngle();
-        xPos = 3.74f * (Mathf.Cos(anglePaddle)+0.01f);
-        yPos = 3.74f * (Mathf.Sin(anglePaddle)-0.13f);
+        xPos = 4.15f * (Mathf.Cos(anglePaddle)+0.02f);
+        yPos = 4.15f * (Mathf.Sin(anglePaddle)-0.12f);
         Vector2 padPosition = new Vector2(xPos, yPos);
         padPosition.x = Mathf.Clamp(xPos, -8f, 8f);
         transform.position = padPosition;

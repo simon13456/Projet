@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ae2cb58b6d6a28246ba5f38f0f8b8e89, type: 3}
-  m_Color: {r: 0, g: 0.8124149, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _point: 100
   _hitMax: 1
+  _BlockDegat: []
 --- !u!60 &2405513979367061445
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -43,9 +43,9 @@ public class etatJeu : MonoBehaviour
         int seconde = (int)(Time.realtimeSinceStartup - live) % 60;
         _temps.SetText(minute + ":" + seconde);
     }
-    public void ajouterPoints(int ValPoint)
+    public void addPoint(int point)
     {
-        _point += ValPoint;
+        _point += point;
         _txtPointage.text = "Score: " + _point;
     }
     public void suicide()

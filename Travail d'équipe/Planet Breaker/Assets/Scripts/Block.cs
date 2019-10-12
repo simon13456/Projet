@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] private int _point = 100;
+    private Niveau _niveau;
+    private etatJeu _etatJeu;
+    [SerializeField] private int _point = 50;
     [SerializeField] private int _hitMax =1;
+    [SerializeField] private Sprite[] _BlockDegat;
     private int _Degat=0;
-    private float[] _color= {126,218};
-    SpriteRenderer renderer;
+    
+   
     
 
 
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        if(tag != "Indestruc")
+        {
+            _niveau = FindObjectOfType<Niveau>();
+            _niveau.compterBriques();
+        }
         
 
     }
@@ -33,29 +40,12 @@ public class Block : MonoBehaviour
             if (_Degat >= _hitMax)
             {
                 Destroy(gameObject, 0f);
-
+                _niveau.enleverBrique();
+                FindObjectOfType<etatJeu>().addPoint(_point);
             }
             else
             {
-               /* Debug.Log(_Degat);
-                if (tag == "ThreeHit")
-                {
-                    if (_Degat == 1)
-                    {
-                        renderer.color = new Color(255f, 218f, 0f, 255f);
-                    }
-                   if (_Degat == 2)
-                    {
-                        renderer.color = new Color(255f, 126f, 0f, 255f);
-                        
-                    }
-                }
-
-                if (tag == "TwoHit")
-                {
-                    renderer.color = new Color(255f, 218, 0f, 255f);
-                }
-                */
+                GetComponent<SpriteRenderer>().sprite = _BlockDegat[_Degat - 1];
             }
 
 

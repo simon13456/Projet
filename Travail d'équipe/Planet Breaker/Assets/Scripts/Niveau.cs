@@ -6,31 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class Niveau : MonoBehaviour
 {
-    [SerializeField] private float Brique = 0f;
+    [SerializeField] private int _nbrBrique = 0;
     private Gestiondescene _gestiondescene;
-    // Start is called before the first frame update
+    
     void Start()
     {
         _gestiondescene = FindObjectOfType<Gestiondescene>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
-        if (Brique <= 0)
-        {
-            FindObjectOfType<etatJeu>().plusvit();
-            _gestiondescene.ChangerScene();
-        }
+       
     }
 
     public void compterBriques()
     {
-        Brique++;
+        _nbrBrique++;
     }
 
     internal void enleverBrique()
     {
-        Brique--;
+        _nbrBrique--;
+        if (_nbrBrique <= 0)
+        {
+            FindObjectOfType<etatJeu>().plusvit();
+            _gestiondescene.ChangerScene();
+        }
     }
 }
