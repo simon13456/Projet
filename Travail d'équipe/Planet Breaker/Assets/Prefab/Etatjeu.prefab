@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vitJeu: 0.75
-  _vie: 3
   _txtPointage: {fileID: 0}
   _nbsVie: {fileID: 0}
   _Niveau: {fileID: 0}

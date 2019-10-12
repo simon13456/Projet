@@ -33,8 +33,8 @@ public class Paddle : MonoBehaviour
         float xPos = 0f;
         float yPos = 0f;
         float  anglePaddle = TrouverAngle();
-        xPos = 4.15f * (Mathf.Cos(anglePaddle)+0.02f);
-        yPos = 4.15f * (Mathf.Sin(anglePaddle)-0.12f);
+        xPos = 4.2f * (Mathf.Cos(anglePaddle)+0.02f);
+        yPos = 4.2f * (Mathf.Sin(anglePaddle)-0.12f);
         Vector2 padPosition = new Vector2(xPos, yPos);
         padPosition.x = Mathf.Clamp(xPos, -8f, 8f);
         transform.position = padPosition;

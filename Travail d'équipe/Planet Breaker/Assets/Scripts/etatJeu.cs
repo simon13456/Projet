@@ -8,7 +8,7 @@ using TMPro;
 public class etatJeu : MonoBehaviour
 {
     [Range(0.1f,10.0f)][SerializeField] private float _vitJeu = 0.75f;
-    [SerializeField] private int _vie = 3;
+    private int _vie = 3;
     [SerializeField] private TextMeshProUGUI _txtPointage =default;
     [SerializeField] private TextMeshProUGUI _nbsVie =default;
     [SerializeField] private TextMeshProUGUI _Niveau = default;
@@ -56,17 +56,18 @@ public class etatJeu : MonoBehaviour
     {
         _vitJeu =+ 0.75F;
     }
-    public void moinsVie()
+   
+    public void perdreVie()
     {
         _vie--;
+        _nbsVie.SetText("Vie:" + _vie.ToString());
         if (_vie <= 0)
         {
             SceneManager.LoadScene("Perdu");
         }
         else
         {
-            int indexSceneCourante = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(indexSceneCourante);
+            FindObjectOfType<Ball>().restart();
         }
     }
 }

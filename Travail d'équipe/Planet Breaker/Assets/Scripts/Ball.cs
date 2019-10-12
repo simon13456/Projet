@@ -39,6 +39,10 @@ public class Ball : MonoBehaviour
         transform.position = (padPosition + _paddleBall);
     }
 
- 
+    public void restart()
+    {
+        _thrown = false;
+        BallPosition();
+    }
    
 }
