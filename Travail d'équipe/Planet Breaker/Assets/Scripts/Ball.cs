@@ -6,13 +6,10 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] private Paddle _paddle= null;
     [SerializeField] private float GlobalPush=0;
-    private Vector2 _paddleBall;
+    private Vector2 _paddleBall=new Vector2(-0.1f,-0.1f);
     private bool _thrown = false;
 
-    void Start()
-    {
-        _paddleBall = transform.position - _paddle.transform.position;
-    }
+  
     void Update()
     {
         if (!_thrown)
@@ -44,5 +41,11 @@ public class Ball : MonoBehaviour
         _thrown = false;
         BallPosition();
     }
-   
+    public void newBall()
+    {
+     
+     GameObject ball2 = Instantiate(gameObject);
+    }
+
+
 }

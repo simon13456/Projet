@@ -39,6 +39,11 @@ public class Block : MonoBehaviour
             _Degat++;
             if (_Degat >= _hitMax)
             {
+                if(tag == "Special")
+                {
+                   FindObjectOfType<Ball>().newBall();
+
+                }
                 Destroy(gameObject, 0f);
                 _niveau.enleverBrique();
                 FindObjectOfType<etatJeu>().addPoint(_point);
