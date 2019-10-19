@@ -8,6 +8,14 @@ public class Collider : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        FindObjectOfType<etatJeu>().perdreVie();
+        if (FindObjectsOfType<Ball>().Length == 2)
+        {
+            other.GetComponent<Ball>().destroyBall();
+        }
+        else
+        {
+            FindObjectOfType<etatJeu>().perdreVie();
+        }
+        
     }
 }

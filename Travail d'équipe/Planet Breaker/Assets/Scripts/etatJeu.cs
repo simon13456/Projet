@@ -70,4 +70,5 @@ public class etatJeu : MonoBehaviour
             FindObjectOfType<Ball>().restart();
         }
     }
+   
 }

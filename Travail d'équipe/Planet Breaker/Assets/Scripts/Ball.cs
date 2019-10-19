@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private Paddle _paddle= null;
+    private Paddle _paddle= null;
     [SerializeField] private float GlobalPush=0;
-    private Vector2 _paddleBall=new Vector2(-0.1f,-0.1f);
+    private Vector2 _paddleBall;
     private bool _thrown = false;
-
-  
+    public bool _deuxBalles = false;
+    
     void Update()
     {
         if (!_thrown)
@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GlobalPush * Mathf.Cos(Mathf.Deg2Rad*180+(_paddle.TrouverAngle())), GlobalPush * Mathf.Sin(Mathf.Deg2Rad*180+(_paddle.TrouverAngle())));
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GlobalPush * Mathf.Cos(Mathf.Deg2Rad*180+(FindObjectOfType<Paddle>().TrouverAngle())), GlobalPush * Mathf.Sin(Mathf.Deg2Rad*180+(FindObjectOfType<Paddle>().TrouverAngle())));
             _thrown = true;
         }
 
@@ -31,8 +31,9 @@ public class Ball : MonoBehaviour
 
     private void BallPosition()
     {
-
-        Vector2 padPosition = new Vector2(_paddle.transform.position.x, _paddle.transform.position.y);
+        
+        Vector2 padPosition = new Vector2(FindObjectOfType<Paddle>().transform.position.x, FindObjectOfType<Paddle>().transform.position.y);
+        _paddleBall = new Vector2(0.2f*Mathf.Cos(FindObjectOfType<Paddle>().TrouverAngle()), 0.2f * Mathf.Sin(FindObjectOfType<Paddle>().TrouverAngle()));
         transform.position = (padPosition + _paddleBall);
     }
 
@@ -41,11 +42,25 @@ public class Ball : MonoBehaviour
         _thrown = false;
         BallPosition();
     }
-    public void newBall()
+
+    public bool deuxBalles()
     {
-     
-     GameObject ball2 = Instantiate(gameObject);
+        return _deuxBalles;
     }
 
+    public void newBall()
+    {
+        GameObject ball2 = Instantiate(gameObject);
+        ball2.name = "ball2";
+        _deuxBalles = true;
+    }
+
+    public void destroyBall()
+    {
+        Destroy(gameObject);
+        _deuxBalles = false;
+    }
+
+  
 
 }
