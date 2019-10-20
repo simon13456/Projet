@@ -8,7 +8,7 @@ using TMPro;
 public class etatJeu : MonoBehaviour
 {
     [Range(0.1f,10.0f)][SerializeField] private float _vitJeu = 0.75f;
-    private int _vie = 3;
+    private int _vie=3;
     [SerializeField] private TextMeshProUGUI _txtPointage =default;
     [SerializeField] private TextMeshProUGUI _nbsVie =default;
     [SerializeField] private TextMeshProUGUI _Niveau = default;
@@ -19,21 +19,26 @@ public class etatJeu : MonoBehaviour
     void Start()
     {
         live = Time.time;
-        _nbsVie.SetText("Vie:"+_vie.ToString());
+        _nbsVie.SetText("Vie:" + _vie.ToString());
         _Niveau.SetText("Niveau " + SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Start" + _vie);
     }
 
-    
+   
     private void Awake()
     {
+
         int compteurJeu = FindObjectsOfType<etatJeu>().Length;
-        if(compteurJeu > 1)
+        if (compteurJeu > 1)
         {
+            Debug.Log("Plotexd");
             Destroy(gameObject);
         }
         else
         {
             DontDestroyOnLoad(gameObject);
+            
+            
         }
     }
     void Update()
@@ -43,15 +48,18 @@ public class etatJeu : MonoBehaviour
         int seconde = (int)(Time.realtimeSinceStartup - live) % 60;
         _temps.SetText(minute + ":" + seconde);
     }
+
     public void addPoint(int point)
     {
         _point += point;
         _txtPointage.text = "Score: " + _point;
     }
+
     public void suicide()
     {
         Destroy(gameObject);
     }
+
     public void plusvit()
     {
         _vitJeu =+ 0.75F;
