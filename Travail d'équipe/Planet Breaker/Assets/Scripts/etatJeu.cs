@@ -9,6 +9,7 @@ public class etatJeu : MonoBehaviour
 {
     [Range(0.1f,10.0f)][SerializeField] private float _vitJeu = 0.75f;
     private int _vie=3;
+    
     [SerializeField] private TextMeshProUGUI _txtPointage =default;
     [SerializeField] private TextMeshProUGUI _nbsVie =default;
     [SerializeField] private TextMeshProUGUI _Niveau = default;
@@ -18,10 +19,13 @@ public class etatJeu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
+
         live = Time.time;
         _nbsVie.SetText("Vie:" + _vie.ToString());
         _Niveau.SetText("Niveau " + SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("Start" + _vie);
+       
+   
     }
 
    
@@ -31,7 +35,7 @@ public class etatJeu : MonoBehaviour
         int compteurJeu = FindObjectsOfType<etatJeu>().Length;
         if (compteurJeu > 1)
         {
-            Debug.Log("Plotexd");
+
             Destroy(gameObject);
         }
         else
@@ -47,12 +51,19 @@ public class etatJeu : MonoBehaviour
         int minute = (int)(Time.realtimeSinceStartup - live)/60;
         int seconde = (int)(Time.realtimeSinceStartup - live) % 60;
         _temps.SetText(minute + ":" + seconde);
+        
     }
 
     public void addPoint(int point)
     {
         _point += point;
         _txtPointage.text = "Score: " + _point;
+    }
+
+    public void changeLvl()
+    {
+        int niveau = FindObjectOfType<Gestiondescene>().getNiveau();
+        _Niveau.text = "Niveau " + (niveau+1);
     }
 
     public void suicide()

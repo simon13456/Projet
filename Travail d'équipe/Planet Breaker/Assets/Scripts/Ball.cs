@@ -17,6 +17,10 @@ public class Ball : MonoBehaviour
              BallPosition();
              ThrowBall();
         }
+        else
+        {
+            AdjustVelo();
+        }
     }
     private void ThrowBall()
     {
@@ -61,6 +65,23 @@ public class Ball : MonoBehaviour
         _deuxBalles = false;
     }
 
+    private void AdjustVelo()
+    {
+        float vitX = GetComponent<Rigidbody2D>().velocity.x;
+        float vitY = GetComponent<Rigidbody2D>().velocity.y;
+        float angleSupp=0;
+
+        if (vitX < 0)
+        {
+            angleSupp = Mathf.Deg2Rad * 180;
+        }
+        float angle = Mathf.Atan(vitY / vitX) + angleSupp;
+
+        float hypo = Mathf.Sqrt((Mathf.Pow(vitX, 2)) + (Mathf.Pow(vitY, 2)));
+        float vitManquante = (GlobalPush - hypo);
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2((vitX + (vitManquante * Mathf.Cos(angle))), (vitY + (vitManquante * Mathf.Sin(angle))));
+    }
   
 
 }

@@ -33,7 +33,7 @@ public class Niveau : MonoBehaviour
             FindObjectOfType<etatJeu>().plusvit();
             
             _gestiondescene.ChangerScene();
-
+            FindObjectOfType<etatJeu>().changeLvl();
         }
     }
 }

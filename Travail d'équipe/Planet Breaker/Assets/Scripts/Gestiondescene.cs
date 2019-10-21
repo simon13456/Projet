@@ -9,7 +9,14 @@ public class Gestiondescene : MonoBehaviour
     {
         int indexSceneCourante = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(indexSceneCourante+1);
+        //FindObjectOfType<etatJeu>().changeLvl();
     }
+    public int getNiveau()
+    {
+        int SceneCourante = SceneManager.GetActiveScene().buildIndex;
+        return SceneCourante;
+    }
+
     public void quitter()
     {
         Application.Quit();
