@@ -8,7 +8,7 @@ using TMPro;
 public class etatJeu : MonoBehaviour
 {
     [Range(0.1f,10.0f)][SerializeField] private float _vitJeu = 0.75f;
-    private int _vie=3;
+    private int _vie=5;
     
     [SerializeField] private TextMeshProUGUI _txtPointage =default;
     [SerializeField] private TextMeshProUGUI _nbsVie =default;
