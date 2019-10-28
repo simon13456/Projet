@@ -16,6 +16,7 @@ public class etatJeu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _temps = default;
     float live = default;
     private int _point = 0;
+    private float vitBonus=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,9 +74,13 @@ public class etatJeu : MonoBehaviour
 
     public void plusvit()
     {
-        _vitJeu =+ 0.75F;
+        vitBonus += 0.5f;
+        Debug.Log(vitBonus);
     }
-   
+    public float godSpeed()
+    {
+        return vitBonus;
+    }
     public void perdreVie()
     {
         _vie--;

@@ -9,7 +9,7 @@ public class Gestiondescene : MonoBehaviour
     {
         int indexSceneCourante = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(indexSceneCourante+1);
-        //FindObjectOfType<etatJeu>().changeLvl();
+        
     }
     public int getNiveau()
     {

@@ -30,10 +30,12 @@ public class Niveau : MonoBehaviour
         _nbrBrique--;
         if (_nbrBrique <= 0)
         {
-            FindObjectOfType<etatJeu>().plusvit();
             
             _gestiondescene.ChangerScene();
             FindObjectOfType<etatJeu>().changeLvl();
+            FindObjectOfType<etatJeu>().plusvit();
+           
+
         }
     }
 }

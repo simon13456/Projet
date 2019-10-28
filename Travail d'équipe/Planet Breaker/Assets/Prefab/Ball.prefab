@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0907c18a1cb823041aa490db62097f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalPush: 7.5
+  GlobalPush: 5
   _deuxBalles: 0
 --- !u!58 &913606929945689994
 CircleCollider2D:
